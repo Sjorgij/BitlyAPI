@@ -4,11 +4,6 @@ import os
 from dotenv import load_dotenv
 import argparse
 
-parser = argparse.ArgumentParser(description='Описание что делает программа')
-
-parser.add_argument('name', help='Ваше имя')
-args = parser.parse_args()
-print(args.name)
 
 load_dotenv()
 
@@ -41,7 +36,7 @@ def is_bitlink(url):
 
 
 def main():
-  url = args.name
+  url = args.url
   parsed_url = f"{urlparse(url).netloc}{urlparse(url).path}"
   if (is_bitlink(parsed_url)):
     try:
@@ -57,4 +52,10 @@ def main():
 
 
 if __name__ == '__main__':
+  parser = argparse.ArgumentParser(description='Описание что делает программа')
+
+  parser.add_argument('url', help='URL адрес')
+  args = parser.parse_args()
+  print(args.url)
+
   main()
