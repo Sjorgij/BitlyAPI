@@ -5,8 +5,6 @@ from dotenv import load_dotenv
 import argparse
 
 
-load_dotenv()
-
 BITLY_API = "https://api-ssl.bitly.com/v4/"
 
 
@@ -57,5 +55,6 @@ if __name__ == '__main__':
   parser.add_argument('url', help='URL адрес')
   args = parser.parse_args()
   print(args.url)
+  load_dotenv()
 
   main()
